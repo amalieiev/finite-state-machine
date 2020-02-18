@@ -4,7 +4,8 @@
   "description": "finite state machine",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage",
+    "test:dev": "jest --watch"
   },
   "repository": {
     "type": "git",
