@@ -4,6 +4,7 @@
   "description": "finite state machine",
   "main": "index.js",
   "scripts": {
+    "dev": "npm run test:dev",
     "test": "jest --coverage",
     "test:dev": "jest --watch"
   },
