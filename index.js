@@ -3,8 +3,8 @@ function Machine(schema, config) {
     let callbacks = []
 
     return {
-        send: function(event) {
-            const next = schema.states[current][event.type]
+        send: function(event, payload) {
+            const next = schema.states[current][event]
 
             if (next) {
                 if (next.target !== current) {
@@ -12,7 +12,7 @@ function Machine(schema, config) {
                     callbacks.forEach(callback => callback(current))
                 }
 
-                next.actions && next.actions.forEach(action => config.actions[action](event))
+                next.actions && next.actions.forEach(action => config.actions[action](event, payload))
             }
 
             return this
