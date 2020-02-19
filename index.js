@@ -7,12 +7,12 @@ function Machine(schema, config) {
             const next = schema.states[current][event.type]
 
             if (next) {
-                next.actions && next.actions.forEach(action => config.actions[action](event))
-
                 if (next.target !== current) {
                     current = next.target
                     callbacks.forEach(callback => callback(current))
                 }
+
+                next.actions && next.actions.forEach(action => config.actions[action](event))
             }
 
             return this
